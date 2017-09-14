@@ -1,0 +1,996 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+.h1, .h2, .h3, .h4, .h5, .h6
+  line-height: 1.4
+  text-transform: uppercase
+
+// вспомогательные классы
+
+.text-center 
+	text-align: center
+	
+.ishome
+	.site-header
+		min-height: 700px
+		height: 100vh
+		background-color: #fff
+		.top-line
+			padding: 0
+			margin: 0
+			padding-top: 1px
+			position: absolute
+			width: 100%
+			z-index: 1
+			background-color: #fff
+			height: 50px
+.logo
+	img:nth-child(1)
+		width: 
+		height: auto
+		position: absolute
+		left: 0px
+		right: 0px
+		margin: 0 auto
+		z-index: 2
+	img:nth-child(2)
+		width: 
+		height: auto
+		position: absolute
+		left: 0px
+		right: 0px
+		margin: 0 auto
+		z-index: 3
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+
+
+.phone 
+	position: absolute
+	left: 85px
+	top: 85px
+	color: #fff
+	font-family: roboto, GothamPro, sans-serif
+	text-decoration: none
+	background-color: transperent
+	.fa
+		color: grey
+		margin-right: 3px
+	@media screen and (max-width: 680px)
+	  left: 300px
+	  color: $accent
+	  font-size: 12px
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.hamburger
+	position: absolute
+	right: 8px
+	top: 1px
+	.hamburger-box
+		width: 34px
+		
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+			border-radius: 0px
+			background-color: $accent
+			width: 34px
+			-height: 2px
+.mm-navbar, .mm-title, .mm-listview
+	border:none
+
+.mm-listview, .mm-listview > li,
+.mm-listview > li:not(.mm-divider)::after,
+.mm-navbar .mm-title
+	border: none
+
+
+
+.mm-listview > li.mm-selected
+	color: $accent
+	background-color: transperent
+
+.mm-panels > .mm-panel > :first-child.mm-listview, .mm-panels > .mm-panel > .mm-navbar + .mm-listview
+	margin: 0
+
+nav.head-menu-one
+	margin: 0 auto
+	margin-top: -10px
+	height: 40px
+	max-width: 900px
+	-background-color: red
+	padding: 0px
+	box-sizing: border-box
+
+nav.head-menu-one ul
+	height: 40px
+	padding: 0px
+	-background-color: #00BFFF
+	box-sizing: border-box
+	white-space: nowrap
+	@media screen and (max-width: 680px)
+	  font-size: 10px
+	  white-space: normal
+	  height: 160px
+	  background-color: #FFF
+	  padding-top: 5px
+
+nav.head-menu-one ul li
+	width: 150px
+	height: 40px
+	display: inline-block
+	list-style: none
+	-background-color: #ae0
+	box-sizing: border-box
+	font-weight: bold
+	text-transform: uppercase
+	text-decoration: none
+	text-align: cetner
+	padding: 5px 10px 5px 20px
+	@media screen and (max-width: 680px)
+	  font-size: 10px
+	  margin-right: 20%
+	  margin-left: 10%
+	  padding: 0
+
+nav.head-menu-one ul li:nth-child(3)
+  margin-left: 30%
+  @media screen and (max-width: 874px)
+	  margin-left: 20%
+  @media screen and (max-width: 800px)
+	  margin-left: 20%
+  @media screen and (max-width: 768px)
+	  margin-left: 15%
+	  margin-right: 0
+	  padding-right: 10px
+  @media screen and (max-width: 715px)
+	  margin-left: 10%
+	  margin-right: 0
+	  padding-right: 10px
+  @media screen and (max-width: 680px)
+	  margin-right: 25%
+
+
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alfa(opacity=$opacity)
+
+.preloader 
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	z-index: 100
+	background: $accent
+	.pulse
+		position: relative
+		left: 50%
+		top: 50vh
+		margin:
+			left: -40px
+			right: -40px
+		&::before, &::after
+			content: ''
+			border: 5px solid #fff
+			width: 80px
+			height: 80px
+			border-radius: 500px
+			position: absolute
+		&::before
+			animation: pulse-outer .8s ease-in infinite
+		&::after
+			animation: pulse-inner .8s linear infinite 
+
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+	
+@keyframes pulse-inner
+	0%
+		@include opacity(0)
+		transform: scale(0)
+	100%
+		@include opacity(100)
+		transform: scale(1)
+
+nav.head-menu-one ul li a 
+	text-decoration: none
+	color: $accent
+
+nav.head-menu-one ul li:hover 
+	background: radial-gradient(ellipse at center, rgba(242,254,255,1) 0%, rgba(255,255,255,0.62) 62%, rgba(255,255,255,0.58) 69%)
+
+nav.head-menu-one ul li:hover a
+	color: #46c48b
+
+nav.head-menu-one ul li a:active
+	color: #2eada4
+
+nav.head-menu-one ul li a:visited
+	color: $accent
+	-color: #0b8e53
+
+nav#my-menu
+	padding-top: 40px
+
+.header-flex-2
+	margin: 0 auto
+	margin-top: 65px
+	width: 500px
+	text-align: center
+	color: $accent
+	h3
+		text-transform: uppercase
+		-background: green
+		margin: 0
+		padding: 0
+		line-height: 1.2em
+		height: 60px
+		color: #58819b
+		font:
+		  family: 'PTSans'
+		  size: 50px
+		  weight: bold
+		
+	h4
+	  position: relative
+	  margin: 0
+	  padding: 0
+	  -background: red
+	  color: #766357
+	  line-height: 1.2em
+	  height: 35px
+	  font:
+		  family: 'GothamPro'
+		  size: 25px
+		  style: italic
+		  
+.header-flex-2 h4::before
+		position: absolute
+		content: ""
+		top: 15px
+		left: 125px
+		border-top: 2.5px solid #766357
+	    background: #fff
+		height: 10px
+		width: 30px
+
+.header-flex-2 h4::after
+		position: absolute
+		content: ""
+		top: 15px
+		right: 125px
+		border-top: 2.5px solid #766357
+	    background: #fff
+		height: 10px
+		width: 30px	   
+
+.header-composition .button,
+.button-white
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 15px 40px
+	font-size: 13px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+			
+
+
+.header-flex
+  display: flex
+  height: 100px
+  position: relative
+  top: 0
+  
+
+.flex-center
+  margin: auto
+  
+
+.header-composition
+  text-align: center
+  position: relative
+  padding: 80px 10px 0
+  @media screen and (max-width: 680px)
+	  padding: 150px 10px 0
+	  font-size: 12px
+	  width: 90%
+
+.header-composition > p
+  margin-top: 40px
+  margin-bottom: 40px
+  color: #fff
+  	  
+
+.welcome p
+  text-transform: uppercase
+  font-size: 14px
+  -color: brown
+  display: flex
+  align-items: center
+  white-space: nowrap
+  margin: 0
+  span
+  	margin: 0 15px
+		&:hover
+			background-color: rgba(255,255,255, 0.3)
+			border-radius: 55px
+
+.welcome p::before, .welcome p::after
+  content: ""
+  height: 2px
+  width: 100%
+  position: relative
+  background-color: #fff
+  display: inline-block
+  
+
+.welcome .h1
+  font-size: 67px
+  font-weight: 100
+  margin: 0
+  line-space: 1.6
+  border-bottom: 1.5px solid #fff
+  padding-bottom: 15px
+  margin-bottom: 15px
+  -white-space: nowrap
+  
+
+.header-composition strong
+	display: block
+	color: darken($accent, 50%)
+	text-transform: uppercase
+	font-size: 15px
+	white-space: nowrap
+	.fa
+		margin: 0 10px
+		font-size: 13px
+		color: darken($accent, 80%)
+	@media screen and (max-width: 680px)
+	  color: #fff
+
+.header-social
+  -background: #ae0
+  position: absolute
+  display: flex
+  align-items: center
+  -width: 17px
+  right: 22px
+  height: 92%
+  border-left: rgba(#fff, .25) 1px solid
+  top: 50px
+  bottom: 50px
+  z-index: 5
+  @media screen and (max-width: 680px)
+	  align-items: flex-end
+	  padding-bottom: 80px
+
+.social-icon
+  margin-left: 8px
+
+.social-icon > ul,
+.social-icon > ul > li,
+.social-icon > ul > li > a
+  margin: 0
+  padding: 0
+  list-style-type: none
+  list-style: none
+  color: #2c2c2c
+
+.social-icon > ul > li
+  height: 38px
+  width: 38px
+  
+.social-icon > ul > li > a
+  font-size: 17px
+  display: block
+  background-color: rgba(#fff, .25) 
+  border-radius: 50%
+  height: 38px
+  width: 38px
+  text-align: center
+  vertical-align: middle
+  margin: 10px 0
+  line-height: 38px
+  transition: background-color .25s ease
+ 
+.social-icon > ul > li > a:hover
+  background-color: rgba(#fff, .5) 
+
+.header-contacts
+  color: rgba(#fff, .85)
+  position: absolute
+  bottom: 0
+  left: 0
+  border-top: rgba(#fff, .15) 2px solid 
+  margin: 0 30px
+  padding: 12px 0
+  width: 95%
+  background-color: rgba(#151515, .15)
+  .fa 
+    margin-right: 5px
+
+.mobomob 
+  -text-align: center
+  padding-left: 20px
+
+.mob 
+  text-decoration: none
+
+.my-content
+	background: #fff
+	margin: 0
+	padding: 0
+
+.s-services
+	background: #fff
+	-height: 20px
+	margin: 0
+	padding: 0
+
+.carousel-services
+	margin: 0
+	padding: 0
+	background: #fff
+
+.owl-nav,
+.owl-prev
+	-display: inline-block
+.owl-item
+	h4 
+		text-align: center
+
+.button-white
+	color: $accent
+	background-color: #fff
+	padding: 10px 15px
+	margin-top: 20px
+	margin-bottom: 20px
+	&::after
+		background-color: rgba(#000, 0.6)
+	&:hover
+		&::after
+			background-color: rgba(#000, 0.2)
+	
+	
+.carousel-services-list
+	list-style: none
+	margin: 0
+	padding: 0
+	li
+		margin: 0
+		padding: 8px
+		border-bottom: 1px solid rgba(#000, .12)
+		&:last-child
+			border-bottom: 0
+		strong
+			color: #fff
+			font-size: 20px
+			
+$colors: $col1, $col2, $col3
+@for $i from 1 through length($colors) 
+	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
+
+.carousel-services-item 
+	color: #fff
+	font-size: 16px
+	font-weight: 300
+ 	position: relative
+	align-self: center
+	display: flex
+	flex-direction: column-reverse
+
+.carousel-services .owl-item:nth-child(2n+2) .carousel-services-item
+	flex-direction: column
+
+.carousel-services-item:hover 
+	.carousel-services-image
+		opacity: 1
+
+.carousel-services-image
+	background-size: cover
+	background-position: center
+	opacity: .7
+	transition: opacity .5s ease
+
+.carousel-services-content
+	display: flex
+	flex-direction: column
+	align-self: center
+	padding: 20px 10%
+	position: relative
+
+.owl-carousel
+	.owl-item
+		backface-visibility: inherit
+
+.carousel-services-item .h4 span
+	font-weight: normal
+
+.carousel-services
+	.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		> div
+			width: 64px
+			height: 64px
+			background: #fff
+			color: $accent
+			text-align: center
+			position: absolute
+			line-height: 64px
+			font-size: 26px
+			&.owl-prev
+				left: 0
+			&.owl-next
+				right: 0
+
+section.s-king
+	background-color: #fff
+	&.inverse
+		color: #fff
+		background-color: #000
+		.h2
+			font-size: 30px
+
+.s
+	&-king, &-review, &-partners
+		padding: 8% 0
+	
+	&-king
+		h2
+			text-align: center
+		p
+			font-size: 14px
+			margin: 5px
+			text-align: justify
+			text-indent: 5%
+			padding:
+
+.section-overlay
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: $over
+		opacity: 0.7
+
+.fotorama
+	background-color: rgba(#000, .4)
+	&__thumb
+		border: 4px #fff solid
+		-transition: border-color 5s ease
+		&-border
+			border-color: darken($accent, 30)
+			transition: border-color .5s ease
+
+.fotorama__active
+	border-color: darken($accent, 30)
+
+
+.fotorama__nav 
+	&-wrap
+		position: absolute
+		bottom: 15px
+		padding: 0 20px
+		width: 100%
+
+	// тень боковая на пейджере		
+.fotorama__nav.fotorama__shadows--left:before, 
+.fotorama__stage.fotorama__shadows--left:before, 
+.fotorama__nav:after, 
+.fotorama__stage:after
+	display: none
+
+// стрелки листалки
+
+.fotorama__arr--prev,
+.fotorama__arr--next
+	&::before
+		font-family: 'FontAwesome'
+		font-size: 32px
+
+.fotorama__arr--next
+	&::before
+		content: '\f105'
+
+.fotorama__arr--prev
+	&::before
+		content: '\f104'
+		margin-left: 20px
+
+
+.s-call
+	-height: 300px
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	position: relative
+	&::before
+		width: 50%
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		height: 100%
+		background-color: darken(rgba($accent, .85), 30)
+
+.success
+	display: none
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	-display: flex
+	text-transform: uppercase
+	font-weight: bold
+	z-index: 10
+	span
+		margin: auto
+	& ~ *
+		transition: all .5s ease
+	&.active
+		& ~ *
+			opacity: .5
+			filter: blur(10px)
+
+.callback
+	color: #fff
+	padding: 25% 0
+	position: relative
+	text-align: center
+	p
+		margin-bottom: 25px
+
+.formhead
+	font-size: 30px
+	text-transform: uppercase
+	margin: 0
+
+select
+	display: inline-block 
+	width: 100%
+	height: 35px
+	color: #000	
+	margin-bottom: 40px
+	border: 2px solid darken($accent, 45)
+
+.callback > input[type="text"]
+	display: inline-block
+	width: 100%
+	margin-bottom: 20px
+	padding: 0 10px
+	border: 2px solid rgba(#000, 0.2)
+	bоrder-radius: 5px
+
+	
+
+.selectize-input
+	border: 2px solid rgba(#000, 0.2)
+	bоrder-radius: 3px
+
+.callback button
+	margin: 0 33%
+
+.s-preview
+	padding: 40px
+	.h-first
+		padding: 40px
+		color: #fff
+
+.s-preview .reviews
+	color: #fff
+	text-align: center
+
+.quotes
+	position: absolute
+	width: 100%
+	&::before, &::after
+		content: ',,'
+		position: absolute
+		top: 180px
+		font-size: 56px
+		color: $accent
+		font-family: 'Times New Roman', serif
+		font-weight: bold
+		line-height: 0
+		transform: rotate(180deg)
+		display: block
+	&::before
+		top: 200px
+		left: -60px
+	&::after
+		right: -60px
+		transform: rotate(0deg)
+
+.s-preview .owl-dots
+	width: 100%
+	text-align: center
+	margin-top: 60px
+	.owl-dot
+		width: 8px
+		height: 8px
+		background: #fff
+		border-radius: 10em
+		display: inline-block
+		margin: 5px
+		transition: background-color .5s ease, transform .5s ease
+		&.active
+			background-color: $accent
+			transform: scale(1.3)
+
+.review
+	&-header
+		font-family: 'Times New Roman', serif
+		font-style: italic
+		font-size: 30px
+		font-weight: bold
+	&-date
+		font-family: 'Times New Roman', serif
+		font-style: italic
+		font-size: 14px
+		font-weight: bold
+		margin-top: 5px
+		margin-bottom: 15px
+		color: rgba(#fff, 0.6)
+	&-stars
+		margin-bottom: 25px
+		color: lighten($accent, 20%)
+		font-size: 14px
+		.fa 
+			margin: 0 5px
+	&-text
+		font-size: 14px
+		color: rgba(#fff, 0.8)
+		
+.s-partners.section-overlay
+	&::before
+		background-color: #fff
+		opacity: 0.8
+
+.s-partners
+	.h2	
+		margin-top: 0px
+		color: $accent
+
+.partners
+	.partner
+		height: 250px
+		display: flex
+		margin: auto
+	.owl-stage
+		display: flex
+	.owl-item
+		margin-top: 30px
+		img
+			max-width: 260px
+			margin-left: 10px
+			width: auto
+			display: inline-block
+					
+	.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		z-index: 2
+		> div
+			position: absolute
+			top: 120px
+			color: #777
+			font-size: 30px
+			transition: opacity 0.1s ease
+			padding: 0 10px
+			&:hover
+				opacity: 0.4			
+			&.owl-prev
+				left: -60px
+			&.owl-next
+				right: -60px
+		
+.main-footer
+	background-color: darken($col2, 15%)
+	padding: 3% 0
+	color: lighten(#979797, 20%)
+	font-size: 14px
+
+.footer-column
+	margin: 15px 0
+	.foot-kredo
+		font-size: 12px
+		color: rgba($accent, 0.5)
+		margin:
+			bottom: 15px
+			top: 15px
+	.foot-logo
+		font-size: 25px
+		text-transform: uppercase
+		margin-bottom: 5px
+	.footer-social
+		margin-top: 50px
+		.social-icon
+			margin-left: 0px
+			li
+				display: inline-block
+				margin: 3px
+				a 
+					i.fa
+						color: #ababab
+						transition: color .5s ease, background-color 0.5s ease
+				&:hover i.fa
+					color: rgba(#000, 0.8)
+		
+.footer-menu
+	margin-top: 40px
+	ul
+		margin: 0
+		padding: 0
+		list-style-type: none
+		li.active
+			a
+				color: $accent
+				&::before
+					color: $accent
+		a
+			color: #979797
+			transition: color .25s ease
+			display: inline-block
+			padding: 4px 0
+			text-decoration: underline
+			padding-left: 20px
+			position: relative
+			&:hover, &:focus
+				color: $accent
+				&::before
+					color: $accent
+			&::before
+				position: absolute
+				left: 0
+				top: 8px
+				content: '\f219'
+				font-family: 'FontAwesome'
+				font-size: 10px
+				color: #979797
+				transition: color .5s ease
+				margin-right: 12px
+
+.footer-abbr
+	position: relative
+	font-size: 14px
+	padding-left: 24px
+	margin: 0 0 20px
+	&:first-child
+		margin-top: 40px
+	.fa
+			position: absolute
+			left: 0px
+			top: 5px
+			font-size: 16px
+			color: #555
+	.foot-fon
+		font-size: 20px
+		font-family: 'roboto', sans-serif
+		padding-top: 10px
+		display: block
+		.fa
+			top: 17px
+			left: 3px
+			font-size: 22px
+
+.mapGo
+	max-height: 200px
+	opacity: 0.7
+	transition: opacity .5s ease
+	&:hover
+		opacity: 1
+
+.top
+	position: fixed
+	bottom: 25px
+	right: -50px
+	background-color: #e0e0e0
+	z-index: 20
+	border-radius: 10em
+	color: #666
+	font-size: 26px
+	width: 50px
+	height: 50px
+	text-align: center
+	line-height: 50px
+	cursor: pointer
+	transition: all 0.5 ease
+	opacity: .5
+	i
+		line-height: 0px
+	&:hover
+		color: #fff
+		background-color:  $accent
+		opacity: 1
+	&.active
+		right: 25px
+
+
+@import "media" // Всегда в конце
